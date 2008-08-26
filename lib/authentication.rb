@@ -33,6 +33,14 @@ module Authentication
     def make_token
       secure_digest(Time.now, (1..10).map{ rand.to_s })
     end
+    
+    def set_password_range(range)
+      @password_range = range
+    end
+    
+    def password_range
+      @password_range || (6..40)
+    end
   end # class methods
 
   module ModelInstanceMethods

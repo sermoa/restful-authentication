@@ -2,6 +2,7 @@ require 'digest/sha1'
 
 class <%= class_name %> < ActiveRecord::Base
   include Authentication
+  set_password_range 6..40
   include Authentication::ByPassword
   include Authentication::ByCookieToken
 <% if options[:aasm] -%>
